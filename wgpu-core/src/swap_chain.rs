@@ -105,7 +105,7 @@ pub(crate) fn swap_chain_descriptor_to_hal(
     );
     //TODO: check for supported
     config.image_usage = conv::map_texture_usage(desc.usage, hal::format::Aspects::COLOR);
-    config.composite_alpha_mode = hal::window::CompositeAlphaMode::OPAQUE;
+    config.composite_alpha_mode = hal::window::CompositeAlphaMode::PREMULTIPLIED;
     config.present_mode = match desc.present_mode {
         wgt::PresentMode::Immediate => hal::window::PresentMode::IMMEDIATE,
         wgt::PresentMode::Mailbox => hal::window::PresentMode::MAILBOX,
